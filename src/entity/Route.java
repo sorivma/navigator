@@ -9,12 +9,12 @@ public class Route {
     private boolean isFavorite;
     private String[] locationPoints;
 
-    public Route(String id, Double distance, int popularity, boolean isFavorite, String[] locationPoints) {
-        this.id = id;
+    public Route(Double distance, int popularity, boolean isFavorite, String[] locationPoints) {
         this.distance = distance;
         this.popularity = popularity;
         this.isFavorite = isFavorite;
         this.locationPoints = locationPoints;
+        this.id = distance + locationPoints[0] + locationPoints[locationPoints.length - 1];
     }
 
 
@@ -70,7 +70,6 @@ public class Route {
                 && route.locationPoints[route.locationPoints.length - 1]
                 .equals(locationPoints[locationPoints.length - 1]);
     }
-
 
 
     @Override

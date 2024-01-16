@@ -68,6 +68,9 @@ public class LinkedList<T> implements Iterable<T> {
         public void remove() {
             if (lastReturned == head) {
                 head = head.next;
+                if (head != null) {
+                    head.previous = null;
+                }
                 return;
             }
             if (lastReturned == tail) {

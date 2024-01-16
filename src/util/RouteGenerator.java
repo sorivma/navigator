@@ -14,27 +14,24 @@ public class RouteGenerator {
         Route[] routes = new Route[number];
 
         for (int i = 0; i < number; i++) {
-            double distance = random.nextDouble()*100;
+            double distance = 5.0 + random.nextDouble()*10;
+
+            String[] locationPoints = generateLocationPoints();
+            distance*=locationPoints.length;
 
             DecimalFormat decimalFormat = new DecimalFormat("#.#");
             distance = Double.parseDouble(decimalFormat.format(distance).replace(",", "."));
 
-
             Route route = new Route(
-                    generateId(),
                     distance,
                     random.nextInt(10),
-                    random.nextInt(10) > 5,
-                    generateLocationPoints()
+                    random.nextInt(10) > 8,
+                    locationPoints
             );
             routes[i] = route;
         }
 
         return routes;
-    }
-
-    private static String generateId() {
-        return UUID.randomUUID().toString();
     }
 
     private static String[] generateLocationPoints() {

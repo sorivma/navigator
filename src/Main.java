@@ -131,7 +131,6 @@ public class Main {
         }
 
         Route route = new Route(
-                UUID.randomUUID().toString(),
                 distance,
                 0,
                 false,
@@ -155,7 +154,7 @@ public class Main {
         String menu =
                 """
                         Добро пожаловать в навигатор
-                        1. Список маршрутов
+                        1. Количество маршрутов
                         2. Создание маршрута
                         3. Удаление маршрута
                         4. Поиск маршрута по ID
@@ -174,9 +173,5 @@ public class Main {
 
     private static void routeList() {
         System.out.println("Общее количество маршрутов: " + navigator.size());
-
-        for (Route route : navigator.getRoutes()) {
-            System.out.println(route);
-        }
     }
 }

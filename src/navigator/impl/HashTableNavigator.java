@@ -38,10 +38,6 @@ public class HashTableNavigator implements Navigator {
         return hashTable.get(routeId.hashCode());
     }
 
-    public Iterable<Route> getRoutes() {
-        return hashTable.values();
-    }
-
     @Override
     public void chooseRoute(String routeId) {
         Route route = hashTable.get(routeId.hashCode());
